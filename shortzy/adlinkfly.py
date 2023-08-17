@@ -5,7 +5,7 @@ import aiohttp
 
 
 class Adlinkfly:
-    def __init__(self, api_key: str, base_site: str = "droplink.co"):
+    def __init__(self, api_key: str, base_site: str = "instantlinks.in"):
         self.api_key = api_key
         self.base_site = base_site
         self.base_url = f"https://{self.base_site}/api"
@@ -26,6 +26,7 @@ class Adlinkfly:
         alias: str = "",
         silently_fail: bool = False,
         quick_link: bool = False,
+        type1: bool = False,
     ) -> str:
         is_short_link = await self.is_short_link(link)
 
@@ -41,6 +42,8 @@ class Adlinkfly:
             "alias": alias,
             "format": "json",
         }
+        if type1:
+            params['type'] = 1
 
         try:
             my_conn = aiohttp.TCPConnector(limit=10)
