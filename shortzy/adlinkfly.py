@@ -42,8 +42,8 @@ class Adlinkfly:
             "alias": alias,
             "format": "json",
         }
-        if type1:
-            params['type'] = 1
+        if not type1:
+            params['type'] = 2
 
         try:
             my_conn = aiohttp.TCPConnector(limit=10)
