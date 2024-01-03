@@ -44,13 +44,11 @@ class Adlinkfly:
         }
         if not type1:
             params['type'] = 2
-        print("params: ", params)
         try:
             my_conn = aiohttp.TCPConnector(limit=10)
             async with aiohttp.ClientSession(connector=my_conn) as session:
                 session = session
                 data = await self.__fetch(session, params)
-                print("data: ", data)
                 if data["status"] == "success":
                     return data["shortenedUrl"]
 
