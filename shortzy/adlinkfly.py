@@ -50,7 +50,7 @@ class Adlinkfly:
             async with aiohttp.ClientSession(connector=my_conn) as session:
                 session = session
                 data = await self.__fetch(session, params)
-
+                print(data)
                 if data["status"] == "success":
                     return data["shortenedUrl"]
 
