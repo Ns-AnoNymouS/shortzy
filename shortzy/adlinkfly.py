@@ -5,7 +5,7 @@ import aiohttp
 
 
 class Adlinkfly:
-    def __init__(self, api_key: str, base_site: str = "instantlinks.in"):
+    def __init__(self, api_key: str, base_site: str = "instantlinks.co"):
         self.api_key = api_key
         self.base_site = base_site
         self.base_url = f"https://{self.base_site}/api"
